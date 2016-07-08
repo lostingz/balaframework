@@ -1,5 +1,5 @@
 /**
- * Chsi
+ * lostingz
  * Created on 2016年7月7日
  */
 package com.bala.security.service.impl;
@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,8 +21,9 @@ import com.bala.role.service.RoleService;
 import com.bala.user.model.User;
 import com.bala.user.service.UserService;
 
+
 /**
- * @author zhenggm<a href="mailto:zhenggm@chsi.com.cn">zhenggm</a>
+ * @author lostingz<a href="mailto:18710833123@163.com">lostingz</a>
  * @version $Id$
  */
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -32,8 +32,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private UserService userService;
     @Autowired
     private RoleService roleService;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String account) throws UsernameNotFoundException {
@@ -44,8 +42,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;
         boolean accountNonLocked = true;
-        String pwd = passwordEncoder.encodePassword(user.getPassword(), null);
-        user.setPassword(pwd);
         UserDetails userDetails = new org.springframework.security.core.userdetails.User(user.getAccount(),
                 user.getPassword(), enables,
                 accountNonExpired, credentialsNonExpired, accountNonLocked, grantedAuthorities);

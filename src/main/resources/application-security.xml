@@ -17,8 +17,8 @@
         <!-- default-target-url 指定了从登录页面登录后进行跳转的页面 always-use-default-target true表示登录成功后强制跳转 authentication-failure-url 表示验证失败后进入的页面 
             login-processing-url 设置验证登录验证地址，如果不设置，默认是j_spring_security_check username-parameter,password-parameter 设置登录用户名和密码的请求name，默认：j_username,j_password 
             default-target-url="/user/home" -->
-        <form-login login-page="/login" always-use-default-target="true" authentication-success-handler-ref="successHandler"
-            authentication-failure-handler-ref="failureHandler" />
+        <form-login login-page="/login" username-parameter="account" password-parameter="password" always-use-default-target="true" authentication-success-handler-ref="successHandler"
+            authentication-failure-handler-ref="failureHandler" login-processing-url="/security_check" />
 
         <!-- 管理员和普通用户可以访问 -->
         <intercept-url pattern="/index" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />

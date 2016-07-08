@@ -1,5 +1,5 @@
 /**
- * Chsi
+ * lostingz
  * Created on 2016年7月7日
  */
 package com.bala.security.controller;
@@ -10,8 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 /**
- * @author zhenggm<a href="mailto:zhenggm@chsi.com.cn">zhenggm</a>
+ * @author lostingz<a href="mailto:18710833123@163.com">lostingz</a>
  * @version $Id$
  */
 @Controller
@@ -50,5 +51,10 @@ public class LoginController {
     public String timedout() {
         log.info("timeout......");
         return "timedout";
+    }
+
+    @RequestMapping(value = "/index")
+    public String index() {
+        return "index";
     }
 }

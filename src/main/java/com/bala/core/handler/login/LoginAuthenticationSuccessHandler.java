@@ -1,5 +1,5 @@
 /**
- * Chsi
+ * lostingz
  * Created on 2016年7月7日
  */
 package com.bala.core.handler.login;
@@ -13,8 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+
 /**
- * @author zhenggm<a href="mailto:zhenggm@chsi.com.cn">zhenggm</a>
+ * @author lostingz<a href="mailto:18710833123@163.com">lostingz</a>
  * @version $Id$
  */
 public class LoginAuthenticationSuccessHandler implements AuthenticationSuccessHandler {

@@ -1,5 +1,5 @@
 /**
- * Chsi
+ * lostingz
  * Created on 2016年7月7日
  */
 package com.bala.user.model;
@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
- * @author zhenggm<a href="mailto:zhenggm@chsi.com.cn">zhenggm</a>
+ * @author lostingz<a href="mailto:18710833123@163.com">lostingz</a>
  * @version $Id$
  */
 @Table(name = "users")

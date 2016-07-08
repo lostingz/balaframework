@@ -1,5 +1,5 @@
 /**
- * Chsi
+ * lostingz
  * Created on 2016年7月7日
  */
 package com.bala.core.handler.login;
@@ -14,7 +14,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
 /**
- * @author zhenggm<a href="mailto:zhenggm@chsi.com.cn">zhenggm</a>
+ * @author lostingz<a href="mailto:18710833123@163.com">lostingz</a>
  * @version $Id$
  */
 public class LoginAuthenticationFailureHandler implements AuthenticationFailureHandler {
