@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.bala.core.dao.BaseHibernateDao;
+import com.bala.core.hibernate.dao.BaseHibernateDao;
 import com.bala.role.dao.RoleDao;
 import com.bala.role.model.Role;
 
@@ -18,7 +18,7 @@ import com.bala.role.model.Role;
  * @version $Id$
  */
 @Repository("roleDao")
-public class RoleDaoImpl extends BaseHibernateDao implements RoleDao {
+public class RoleDaoImpl extends BaseHibernateDao<Role> implements RoleDao {
 
     @Override
     public List<Role> getRolesByUserId(String userId) {

@@ -28,4 +28,23 @@ public class UserServiceImpl implements UserService {
         return userDao.getUserByAccount(account);
     }
 
+    @Override
+    public void createUser(User u) {
+        userDao.createUser(u);
+    }
+
+    @Override
+    public User getUserById(String uid) {
+        return userDao.getUserById(uid);
+    }
+
+    @Override
+    public void updateUser(User u) {
+        userDao.updateUser(u);
+    }
+
+    @Override
+    public void saveOrUpdateUser(User u) {
+        userDao.saveOrUpdateUser(u);
+    }
 }

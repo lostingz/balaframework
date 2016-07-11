@@ -12,4 +12,12 @@ import com.bala.user.model.User;
  */
 public interface UserDao {
     User getUserByAccount(String account);
+
+    void createUser(User u);
+
+    User getUserById(String uid);
+
+    void updateUser(User u);
+
+    void saveOrUpdateUser(User u);
 }

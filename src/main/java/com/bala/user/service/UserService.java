@@ -12,4 +12,12 @@ import com.bala.user.model.User;
  */
 public interface UserService {
     public User getUserByAccount(String account);
+
+    void createUser(User u);
+
+    void updateUser(User u);
+
+    void saveOrUpdateUser(User u);
+
+    User getUserById(String uid);
 }
