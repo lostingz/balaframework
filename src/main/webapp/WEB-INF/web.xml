@@ -71,11 +71,8 @@
 
     <!--  获取Spring Security session的生命周期-->  
     <listener>  
-        <listener-class>  
-         org.springframework.security.web.session.HttpSessionEventPublisher   
-        </listener-class>  
+        <listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>  
     </listener>  
-
 
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
