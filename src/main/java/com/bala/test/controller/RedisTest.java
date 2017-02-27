@@ -12,7 +12,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 
 /**
  * @author lostingz<a href="mailto:18710833123@163.com">lostingz</a>
- * @version $Id$
+ * @version $Id$dd
  */
 public class RedisTest {
     private StringRedisTemplate stringRedisTemplate;

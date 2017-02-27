@@ -3,3 +3,5 @@
 /.project
 /.settings
 /project-log.log
+.idea/
+*.iml
