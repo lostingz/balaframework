@@ -199,7 +199,18 @@
             <artifactId>spring-data-redis</artifactId>
             <version>1.7.0.RELEASE</version>
         </dependency>
-
+        <!--kryo-->
+        <dependency>
+            <groupId>com.esotericsoftware</groupId>
+            <artifactId>kryo</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+        <!--msgpack-->
+        <dependency>
+            <groupId>org.msgpack</groupId>
+            <artifactId>msgpack</artifactId>
+            <version>0.6.12</version>
+        </dependency>
         <!-- jsoup -->
         <dependency>
             <groupId>org.jsoup</groupId>

@@ -17,27 +17,26 @@ public class RedisLock implements IDistributedLock {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
-    private static final String LOCKNAME = "redisLock";
+    private static final String LOCK_VAL = "redisLock";
 
     @Override
     public boolean lock(String key, int timeoutInMills) {
-        // todo:
         return false;
     }
 
     @Override
-    public boolean tryLock(String key, int autoReleaseTimeInSecs) {
+    public boolean tryLock(String key, int autoReleaseTime) {
         try {
-            boolean isLocked = stringRedisTemplate.opsForValue().setIfAbsent(key, LOCKNAME);
+            boolean isLocked = stringRedisTemplate.opsForValue().setIfAbsent(key, LOCK_VAL);
             if (isLocked) {
-                stringRedisTemplate.expire(key, autoReleaseTimeInSecs, TimeUnit.SECONDS);
+                stringRedisTemplate.expire(key, autoReleaseTime, TimeUnit.SECONDS);
             } else if (stringRedisTemplate.getExpire(key) == -1) {
-                stringRedisTemplate.expire(key, autoReleaseTimeInSecs, TimeUnit.SECONDS);
+                stringRedisTemplate.expire(key, autoReleaseTime, TimeUnit.SECONDS);
             }
             return isLocked;
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        } 
         return false;
     }
 
