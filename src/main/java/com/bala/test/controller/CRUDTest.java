@@ -26,19 +26,17 @@ public class CRUDTest {
     @RequestMapping(value = "/add")
     public void add() {
         // userService.createUser(new User());
-        userService.createUser(new User("", "111", "1234"));
+        userService.createUser(new User("asdfasdfasdfasdfasd", "admin", "admin"));
     }
 
     @RequestMapping(value = "/get")
     @ResponseBody
-    public String get() {
+    public User get() {
         User u = userService.getUserById("2c908a9e55d824f30155d82521f50000");
         if (u == null) {
-            return "no user";
+            return null;
         }
-        u.setPassword("update passwd");
-        userService.saveOrUpdateUser(u);
-        return u.getPassword();
+        return u;
     }
 
 }

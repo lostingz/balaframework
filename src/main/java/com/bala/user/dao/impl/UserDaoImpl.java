@@ -6,6 +6,7 @@ package com.bala.user.dao.impl;
 
 import java.util.List;
 
+import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import com.bala.core.hibernate.dao.BaseHibernateDao;
@@ -19,10 +20,11 @@ import com.bala.user.model.User;
 @Repository("userDao")
 public class UserDaoImpl extends BaseHibernateDao<User> implements UserDao {
 
+    
     @Override
     public User getUserByAccount(String account) {
         // just for test
-        return new User("1", "111", "6216f8a75fd5bb3d5f22b6f9958cdede3fc086c2");
+        return new User("1", "111", new ShaPasswordEncoder().encodePassword("1234",null));
     }
 
     @Override

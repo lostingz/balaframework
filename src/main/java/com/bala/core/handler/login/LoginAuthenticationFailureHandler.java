@@ -21,11 +21,11 @@ public class LoginAuthenticationFailureHandler implements AuthenticationFailureH
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
-            AuthenticationException arg2) throws IOException, ServletException {
+            AuthenticationException e) throws IOException, ServletException {
         // 根据AuthenticationException异常的类型
         // 进行出错业务逻辑处理
         // ...
-        System.out.println("login auth error");
+        System.out.println("login auth error:"+e.getMessage());
         response.sendRedirect(request.getContextPath() + "/login");
     }
 

@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.bala</groupId>
     <artifactId>bala</artifactId>
@@ -52,7 +52,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.1.26</version>
+            <version>1.2.24</version>
         </dependency>
 
         <!-- 使用 Jackson 把 Java 对象转换成 JSON 字串 -->
@@ -71,7 +71,6 @@
             <artifactId>jackson-annotations</artifactId>
             <version>2.1.0</version>
         </dependency>
-
 
         <!-- mysql驱动包 -->
         <dependency>
@@ -92,9 +91,16 @@
             <artifactId>log4j</artifactId>
             <version>${log4j.version}</version>
         </dependency>
-        <!-- <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-api</artifactId> <version>${slf4j.version}</version> 
-            </dependency> <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-log4j12</artifactId> <version>${slf4j.version}</version> 
-            </dependency> -->
+        <!--<dependency>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>slf4j-api</artifactId>-->
+            <!--<version>${slf4j.version}</version>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
 
         <!--Spring AOP所要用到的包 -->
         <dependency>
@@ -225,7 +231,7 @@
         <hibernate.version>4.2.5.Final</hibernate.version>
         <spring.security.version>3.2.5.RELEASE</spring.security.version>
         <!-- log4j日志文件管理包版本 -->
-        <!-- <slf4j.version>1.7.10</slf4j.version> -->
+        <!--<slf4j.version>1.7.10</slf4j.version>-->
         <log4j.version>1.2.17</log4j.version>
     </properties>
     <build>
@@ -240,6 +246,21 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+            <!--JRebel-->
+            <plugin>
+                <groupId>org.zeroturnaround</groupId>
+                <artifactId>jrebel-maven-plugin</artifactId>
+                <version>1.1.6</version>
+                <executions>
+                    <execution>
+                        <id>generate-rebel-xml</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

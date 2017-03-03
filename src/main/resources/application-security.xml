@@ -21,11 +21,11 @@
             authentication-failure-handler-ref="failureHandler" login-processing-url="/security_check" />
 
         <!-- 管理员和普通用户可以访问 -->
-        <intercept-url pattern="/index" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
+        <intercept-url pattern="/index/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
         <!-- 管理员和普通用户可以访问 -->
-        <intercept-url pattern="/common" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
+        <intercept-url pattern="/common/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
         <!-- 只有管理员可以访问 -->
-        <intercept-url pattern="/admin" access="hasAnyRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/admin/**" access="hasAnyRole('ROLE_ADMIN')" />
         <!-- 退出后到登陆页面 -->
         <logout logout-success-url="/login" />
 
@@ -38,6 +38,7 @@
         </session-management>
     </http>
 
+    <!-- PasswordEncoder 密码接口 -->
     <beans:bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
     </beans:bean>
 
@@ -48,7 +49,7 @@
             </password-encoder>
         </authentication-provider>
     </authentication-manager>
-
+    
     <beans:bean id="UserDetailsService" class="com.bala.security.service.impl.UserDetailsServiceImpl" />
 
     <!-- 登录成功业务处理 -->

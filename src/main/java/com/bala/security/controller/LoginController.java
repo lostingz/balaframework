@@ -4,11 +4,15 @@
  */
 package com.bala.security.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.bala.security.type.LoginErrorType;
 
 
 /**
@@ -18,19 +22,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController {
 
-    private static Logger log = LoggerFactory.getLogger(LoginController.class);
+    private static Logger log = Logger.getLogger(LoginController.class);
+
     /**
      * 登录入口
      */
     @RequestMapping(value = {"/login"})
     public String login(@RequestParam(required = false) String error) {
-        log.info("login......");
-        if ("1".equals(error)) {
-            log.info("验证失败！");
-        } else if ("2".equals(error)) {
-            log.info("你的帐号已登录，不允许重复登陆！");
-        } else if ("3".equals(error)) {
-            log.info("会话超时!");
+        for (LoginErrorType loginErrorType : LoginErrorType.values()) {
+            if (StringUtils.equals(loginErrorType.getCode(), error)) {
+                log.info(loginErrorType.getDesc());
+            }
         }
         return "login";
     }
@@ -40,7 +42,8 @@ public class LoginController {
      */
     @RequestMapping(value = "/denied")
     public String denied() {
-        log.info("denied......");
+        User u= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        log.info(String.format("Access Denied UserName:%s",u.getUsername()));
         return "denied";
     }
 

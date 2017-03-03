@@ -50,6 +50,5 @@ public class RedisTest {
         Assert.assertEquals("heheda", stringRedisTemplate.opsForValue().get("a8"));
         List<User> list= (List<User>) redisTemplate.opsForValue().get("list");
         Assert.assertEquals(4,list.size());
-        
     }
 }
