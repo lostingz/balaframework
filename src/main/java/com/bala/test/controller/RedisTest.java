@@ -28,10 +28,10 @@ public class RedisTest {
     @Before
     public void before() {
         stringRedisTemplate = (StringRedisTemplate) new ClassPathXmlApplicationContext("spring.xml", "spring-hibernate.xml",
-                "spring-mvc.xml")
+                "spring-mvc.xml","application-security.xml")
                 .getBean("stringRedisTemplate");
         redisTemplate = (RedisTemplate) new ClassPathXmlApplicationContext("spring.xml", "spring-hibernate.xml",
-                "spring-mvc.xml")
+                "spring-mvc.xml","application-security.xml")
                 .getBean("redisTemplate");
         for (int i = 0; i < 10; i++) {
             stringRedisTemplate.opsForValue().set("a" + i, "heheda");
