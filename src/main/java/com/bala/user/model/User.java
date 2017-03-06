@@ -25,15 +25,23 @@ public class User implements Serializable{
     @Id
     @GeneratedValue(generator = "paymentableGenerator")
     @GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
-    @Column(name = "id")
+    @Column(name = "id",nullable = false)
     private String id;
-    @Column(name = "account")
+    @Column(name = "account",nullable = false)
     private String account;
-    @Column(name = "password")
+    @Column(name = "password",nullable = false)
     private String password;
+    @Column(name = "salt",nullable = false)
+    private String salt;
 
     public User() {
         super();
+    }
+
+    public User(String account, String password) {
+        super();
+        this.account = account;
+        this.password = password;
     }
 
     public User(String id, String account, String password) {
@@ -67,4 +75,11 @@ public class User implements Serializable{
         this.password = password;
     }
 
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
 }

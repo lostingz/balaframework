@@ -4,6 +4,8 @@
  */
 package com.bala.user.service;
 
+import java.util.List;
+
 import com.bala.user.model.User;
 
 /**
@@ -20,4 +22,6 @@ public interface UserService {
     void saveOrUpdateUser(User u);
 
     User getUserById(String uid);
+    
+    List<User> queryAll();
 }

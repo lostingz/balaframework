@@ -4,7 +4,6 @@
  */
 package com.bala.security.service.impl;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -18,6 +17,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.bala.role.model.Role;
 import com.bala.role.service.RoleService;
+import com.bala.user.model.SaltedUser;
 import com.bala.user.model.User;
 import com.bala.user.service.UserService;
 
@@ -37,17 +37,17 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String account) throws UsernameNotFoundException {
         User user = userService.getUserByAccount(account);
         // 账号密码错误，可以在这里手动抛出异常，让验证失败处理器AuthenticationFailureHandler进行处理
-        Collection<GrantedAuthority> grantedAuthorities = getGrantedAuthorities(user);
+        Set<GrantedAuthority> grantedAuthorities = getGrantedAuthorities(user);
         boolean enables = true;
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;
         boolean accountNonLocked = true;
-        UserDetails userDetails = new org.springframework.security.core.userdetails.User(user.getAccount(),
+        UserDetails userDetails = new SaltedUser(user.getAccount(),
                 user.getPassword(), enables,
-                accountNonExpired, credentialsNonExpired, accountNonLocked, grantedAuthorities);
+                accountNonExpired, credentialsNonExpired, accountNonLocked, grantedAuthorities,user.getSalt());
         return userDetails;
     }
-
+    
     /**
      * 根据用户获取该用户拥有的角色
      * 

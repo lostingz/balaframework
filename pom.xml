@@ -22,6 +22,12 @@
             <version>3.4</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>18.0</version>
+        </dependency>
+
         <!-- servlet api jar -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -96,11 +102,11 @@
             <!--<artifactId>slf4j-api</artifactId>-->
             <!--<version>${slf4j.version}</version>-->
         <!--</dependency>-->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>slf4j-log4j12</artifactId>-->
+            <!--<version>${slf4j.version}</version>-->
+        <!--</dependency>-->
 
         <!--Spring AOP所要用到的包 -->
         <dependency>

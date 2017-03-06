@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User list</title>
+</head>
+<body>
+<div id="user-list">
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>account</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        initList();
+    });
+    function initList() {
+        var url="/user/list";
+        $.ajax({
+            url:url,
+            type:"GET",
+            success:function (data) {
+                alert(data);
+            },
+            error:function (error) {
+                alert(error);
+            }
+        })
+    }
+</script> 

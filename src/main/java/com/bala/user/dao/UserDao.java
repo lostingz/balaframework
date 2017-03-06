@@ -4,6 +4,8 @@
  */
 package com.bala.user.dao;
 
+import java.util.List;
+
 import com.bala.user.model.User;
 
 /**
@@ -20,4 +22,6 @@ public interface UserDao {
     void updateUser(User u);
 
     void saveOrUpdateUser(User u);
+    
+    List<User> getList();
 }
