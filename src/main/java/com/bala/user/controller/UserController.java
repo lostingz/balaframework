@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bala.user.model.User;
 import com.bala.user.service.UserService;
+import com.bala.user.vo.UserVO;
 
 /**
  * @author zhenggm<a href="mailto:zhenggm@chsi.com.cn">zhenggm</a>
@@ -29,7 +30,7 @@ public class UserController {
     
     @RequestMapping(value = "/list")
     @ResponseBody
-    public List<User> list(){
+    public List<UserVO> list(){
         return userService.queryAll();
     }
 

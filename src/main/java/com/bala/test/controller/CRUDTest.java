@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bala.user.model.User;
 import com.bala.user.service.UserService;
+import com.bala.user.vo.UserVO;
 
 /**
  * @author lostingz<a href="mailto:18710833123@163.com">lostingz</a>
@@ -35,12 +36,13 @@ public class CRUDTest {
 
     @RequestMapping(value = "/get")
     @ResponseBody
-    public User get() {
-        User u = userService.getUserById("2c908a9e55d824f30155d82521f50000");
-        if (u == null) {
-            return null;
+    public UserVO get() {
+        User u = userService.getUserById("2c908a9e5aa1c23e015aa1c2d8370000");
+        UserVO userVO=new UserVO();
+        if(u!=null){
+            userVO.setUserName(u.getAccount());
         }
-        return u;
+        return userVO;
     }
 
 }

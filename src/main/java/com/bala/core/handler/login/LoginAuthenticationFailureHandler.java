@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
+import com.alibaba.fastjson.JSONObject;
+
 /**
  * @author lostingz<a href="mailto:18710833123@163.com">lostingz</a>
  * @version $Id$
@@ -26,7 +28,10 @@ public class LoginAuthenticationFailureHandler implements AuthenticationFailureH
         // 进行出错业务逻辑处理
         // ...
         System.out.println("login auth error:"+e.getMessage());
-        response.sendRedirect(request.getContextPath() + "/login");
+        JSONObject object=new JSONObject();
+        object.put("status","fail");
+        response.setContentType("application/json;charset=utf-8");
+        response.getWriter().write(object.toJSONString());
     }
 
 }

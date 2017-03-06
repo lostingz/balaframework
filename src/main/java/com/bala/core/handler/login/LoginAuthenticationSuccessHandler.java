@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+import com.alibaba.fastjson.JSONObject;
+
 
 /**
  * @author lostingz<a href="mailto:18710833123@163.com">lostingz</a>
@@ -27,7 +29,10 @@ public class LoginAuthenticationSuccessHandler implements AuthenticationSuccessH
             throws IOException, ServletException {
         // response.sendRedirect(request.getContextPath()+url);
         System.out.println("login success");
-        request.getRequestDispatcher(url).forward(request, response);
+        JSONObject object=new JSONObject();
+        object.put("status","success");
+        response.setContentType("application/json;charset=utf-8");
+        response.getWriter().write(object.toJSONString());
     }
 
     public void setUrl(String url) {

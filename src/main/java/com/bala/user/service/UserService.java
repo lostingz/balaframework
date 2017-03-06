@@ -7,6 +7,7 @@ package com.bala.user.service;
 import java.util.List;
 
 import com.bala.user.model.User;
+import com.bala.user.vo.UserVO;
 
 /**
  * @author lostingz<a href="mailto:18710833123@163.com">lostingz</a>
@@ -23,5 +24,5 @@ public interface UserService {
 
     User getUserById(String uid);
     
-    List<User> queryAll();
+    List<UserVO> queryAll();
 }
