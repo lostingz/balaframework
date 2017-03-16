@@ -34,7 +34,7 @@ public class LoginController {
                 log.info(loginErrorType.getDesc());
             }
         }
-        return "login";
+        return "public/index";
     }
 
     /**
@@ -44,7 +44,7 @@ public class LoginController {
     public String denied() {
         User u= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         log.info(String.format("Access Denied UserName:%s",u.getUsername()));
-        return "denied";
+        return "login/denied";
     }
 
     /**
@@ -53,11 +53,11 @@ public class LoginController {
     @RequestMapping(value = "/timeout")
     public String timedout() {
         log.info("timeout......");
-        return "timedout";
+        return "login/timedout";
     }
 
     @RequestMapping(value = "/index")
     public String index() {
-        return "index";
+        return "public/index";
     }
 }
